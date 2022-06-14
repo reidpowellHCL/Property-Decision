@@ -1,11 +1,17 @@
 .appbar-name-and-title{
   color: #fff;
-  font-size: 20px !important;
+  font-size: 16px !important;
+  padding-right: 5%;
 }
 
 .global-search {
-  left: 130px;
-  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.global-search > div{
+  width: 60% !important;
+  padding-left: 40%;
 }
 
 .home-appbar {
@@ -15,7 +21,7 @@
   background: rgb(0, 120, 215);
   display: flex;
   justify-content: space-between;
-  padding: 0px 20px;
+  padding:0 30px 0 20px;
 }
 
 
@@ -41,6 +47,6 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 25%;
+  justify-content: flex-end;
+  padding-right: 1%;
 }

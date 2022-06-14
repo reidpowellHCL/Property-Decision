@@ -131,7 +131,7 @@ function MainPage(props) {
 
       </Grid>
 
-      <Grid item xs={12} id="datagrid-wrapper">
+      <Grid item xs={12}  id="datagrid-wrapper">
         <DataGrid
           rows={rows}
           columns={columns}

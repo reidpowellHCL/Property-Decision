@@ -35,6 +35,12 @@ button {
   height: 16px;
 }
 
+.MuiDataGrid-cell {
+  width: 16.67vw !important;
+  min-width: 16.67vw !important;
+  max-width: 16.67vw !important;
+}
+
 
 .MuiDataGrid-cell--textCenter {
   border: none !important;
@@ -43,6 +49,12 @@ button {
 .MuiDataGrid-cell--textCenter:hover {
   background-color: #e8e7e7;
   border: none !important;
+}
+
+.MuiDataGrid-columnHeader {
+  width: 16.67vw !important;
+  min-width: 16.67vw !important;
+  max-width: 16.67vw !important;
 }
 
 .MuiDataGrid-columnHeaders {
@@ -55,14 +67,12 @@ button {
   font-weight: 600;
 }
 
-.MuiDataGrid-columnHeaderTitleContainer{
-  display: flex;
-  justify-content: space-evenly !important;
-  padding-left: 30px;
+.MuiDataGrid-iconButtonContainer{
+  position: relative;
+  left: 5%
 }
 
 .MuiDataGrid-menuIconButton {
-
   height: 20px;
   width: 20px;
 }
@@ -72,6 +82,8 @@ button {
   height: 20px;
   width: 20px;
 }
+
+
 
 .policy-number-cell,
 .submission-number-cell {
