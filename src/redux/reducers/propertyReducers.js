@@ -23,13 +23,13 @@ import {
   REFERRAL_DATA,
   REFERRAL_LOADING,
   STORE_DATA,
-  UPDATE_POLICY
+  UPDATE_UNDERWRITING_ACTIONS
 } from '../actions/propertyActions';
 import { initialState } from './initialState';
 
 export default (state = initialState.property, action) => {
   switch (action.type) {
-    case CALCULATE_CAT_CLAIMS_RISK_SCORE: 
+    case CALCULATE_CAT_CLAIMS_RISK_SCORE:
       return {
         ...state,
         policies: [
@@ -256,7 +256,7 @@ export default (state = initialState.property, action) => {
         policies: action.payload,
         loading: false
       }
-    case UPDATE_POLICY:
+    case UPDATE_UNDERWRITING_ACTIONS:
       return {
         ...state,
         policies: [

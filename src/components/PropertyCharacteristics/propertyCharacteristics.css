@@ -7,47 +7,30 @@
 .roofType,
 .dwellingSquareFeet,
 .videoSmartDwelling {
-  width: 25vw;
+  max-width: 85%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 2vh;
 }
 
-.ageOfDwelling > input, .ageOfRoof > input {
-  margin: 0 12px 0 0;
-  min-width: 177px;
-}
 
-.dwellingSquareFeet > input {
-  margin: 0 16px 0 0;
-  min-width: 177px;
-}
 
 .property-characteristics-container {
   display: flex;
   width: 97vw;
   height: 30vh;
   border-bottom: 1px solid black;
+  padding: 10px 0;
 }
+
 .property-characteristics {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
 }
+
 .characteristics {
   display: flex;
   width: 97vw;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-
-.ageOfDwelling > input,
-.ageOfRoof > input,
-.dwellingSquareFeet > input{
-  position: relative;
-  left: 48px;
-  width: 180px;
-}
-
-.dwellingSquareFeet > input {
-  left: 43px;
 }

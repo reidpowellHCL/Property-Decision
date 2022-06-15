@@ -23,11 +23,11 @@ export const CALCULATE_WATER_LOSS_RISK_SCORE = 'CALCULATE_WATER_LOSS_RISK_SCORE'
 export const LOADING = 'LOADING';
 export const REFERRAL_DATA = 'REFERRAL_DATA';
 export const REFERRAL_LOADING = 'REFERRAL_LOADING';
-export const UPDATE_POLICY = 'UPDATE_POLICY';
+export const UPDATE_UNDERWRITING_ACTIONS = 'UPDATE_UNDERWRITING_ACTIONS';
 
 
 export const calculateCumulativeRisk = (riskScoresObj) => {
-  
+
 
   const riskProperties = ['occupantsRisk', 'occupationRisk', 'dwellingRisk', 'roofRisk', 'roofTypeRisk', 'sidingRisk', 'slopeRisk', 'garageRisk', 'squareFootRisk', 'covARisk', 'catClaimRisk', 'nonCatClaimRisk', 'liabilityClaimRisk', 'protectionRisk', 'waterLossPrevRisk', 'smartHomeRisk', 'videoHomeRisk', 'otherPoliciesRisk', 'liabilityLimitRisk', 'deductibleRisk', 'priorInsuranceRisk'];
 
@@ -210,7 +210,7 @@ export const calculateOccupationRisk = (variable, occupation) => {
 
 export const calculateCovARisk = (variable, coverageALimit) => {
 
-  const covALimit = parseInt(coverageALimit);
+  const covALimit = parseInt(coverageALimit.slice(1));
   let covARisk;
 
   if (covALimit <= 500000) {
@@ -597,6 +597,15 @@ export const calculateProtectionClaimsRisk = (variable, protectionClaimsNumber) 
   }
 }
 
+export const updateUnderwritingActions = (variable, action) => {
+
+  return {
+    type: UPDATE_UNDERWRITING_ACTIONS,
+    payload: action,
+    variable: variable
+  }
+}
+
 export const updatePolicy = (variable, value) => {
 
   if (variable === 'occupation') {
@@ -649,5 +658,8 @@ export const updatePolicy = (variable, value) => {
   }
   if (variable === 'protectionClass') {
     return calculateProtectionClaimsRisk(variable, value);
+  }
+  if (variable === 'underwritingActions') {
+    return updateUnderwritingActions(variable, value);
   }
 }
