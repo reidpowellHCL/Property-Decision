@@ -18,7 +18,7 @@ function Footer (props) {
         <div className="footer-right">
           <button className={`Submit-btn-${policyState.submitButtonClass}`}>Submit</button>
           <button className={`Save-btn-${policyState.saveButtonClass}`}>Save</button>
-          <Link to='/'>
+          <Link to='/' className='footer-linked-button'>
           <button className={`Cancel-btn-${policyState.cancelButtonClass}`}>Cancel</button>
           </Link>
           

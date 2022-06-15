@@ -15,6 +15,7 @@
 .priorInsurance>input {
   background-color: #d5d4d4;
   height: fit-content;
+  text-align: left;
   width: 100%
 }
 
@@ -26,12 +27,15 @@ textarea[id='Named Insured Address'] {
   background-color: #d5d4d4;
 }
 
+button {
+  width: 200px;
+}
+
 label,
 input,
 button,
 select {
   padding: 10px;
-  width: 200px;
   border: 1px solid black;
   background: white;
   color: black;
@@ -39,9 +43,21 @@ select {
   font-size: 14px;
 }
 
+
+
+input {
+  text-align: right;
+  width:  45%;
+}
+
+label, select {
+  width: 50%
+}
+
+
 textarea {
   padding: 10px;
-  width: 300px;
+  width: 100%;
   border: 1px solid black;
   background: white;
   color: black;
@@ -85,12 +101,18 @@ i {
   justify-content: center;
 }
 
+.policy-page-policy-number-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px 0 0;
+}
+
 .risk-management {
   display: flex;
   flex-direction: column;
 }
 
-select[id='Garage'] {
+/* select[id='Garage'] {
   width: 245px
 }
 
@@ -108,7 +130,7 @@ select[id='Video & Smart Dwelling'] {
 
 select[id='Water Loss Prevention Device'] {
   width: 245px
-}
+} */
 
 .underwriting {
   border-bottom: none;

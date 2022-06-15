@@ -1,10 +1,11 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  width: 90vw;
+  width: 95vw;
 }
+
 .footer-left {
-  width: 40vw;
+  width: 12vw;
   justify-content: space-between;
   display: flex;
   text-decoration: none;
@@ -23,21 +24,41 @@
   cursor: pointer;
 }
 
-.Submit-btn-inactive, .Save-btn-inactive, .Back-btn-inactive {
-  border-radius: 4px;
-    background: #d5d4d4;
-    cursor: not-allowed;
-    color: #000000;
-    height: 25%;
-    margin-top: 20px;
+.footer-linked-button {
+  width: 30%;
 }
 
-.Submit-btn-active, .Save-btn-active, .Cancel-btn-active, .Back-btn-active {
+.Submit-btn-inactive,
+.Save-btn-inactive,
+.Back-btn-inactive {
   border-radius: 4px;
-    background: rgb(0, 120, 215);
-    cursor: pointer;
-    color: #ffffff;
-    height: 25%;
-    margin-top: 20px;
+  background: #d5d4d4;
+  cursor: not-allowed;
+  color: #000000;
+  height: 25%;
+  margin-top: 20px;
+  width: 30%;
 }
 
+.Submit-btn-active,
+.Save-btn-active,
+.Cancel-btn-active,
+.Back-btn-active {
+  border-radius: 4px;
+  background: rgb(0, 120, 215);
+  cursor: pointer;
+  color: #ffffff;
+  height: 25%;
+  margin-top: 20px;
+}
+
+
+.Cancel-btn-active{
+  border-radius: 4px;
+  background: rgb(0, 120, 215);
+  cursor: pointer;
+  color: #ffffff;
+  height: 25%;
+  margin-top: 20px;
+  width: 100%;
+}

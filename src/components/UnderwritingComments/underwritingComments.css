@@ -1,9 +1,14 @@
-.UnderwritingComments > textarea {
+.UnderwritingComments>textarea {
   width: 95vw;
   height: 100px;
 }
 
 .underwritingActions {
-  width: 20vw;
+  width: 21vw;
+  display: flex;
+}
+
+.underwritingActions > select {
+  min-width: 200px;
   display: flex;
 }

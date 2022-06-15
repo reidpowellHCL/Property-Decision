@@ -11,7 +11,6 @@ import RiskManagement from '../RiskManagement/riskManagement';
 import UnderwritingComments from '../UnderwritingComments/underwritingComments';
 import Footer from '../Footer/footer';
 import PolicyLimits from '../PolicyLimits/policyLimits';
-import input from '../../inputData/input.xlsx';
 import policyData from '../../inputData/policyData.xlsx';
 import hclLogo from '../../inputData/HCL_Logo.svg';
 import './policyPage.css'
@@ -109,8 +108,8 @@ function PolicyPage(props) {
             </Typography>
           </Grid>
 
-          <Grid item xs={2}>
-            <Typography >
+          <Grid item xs={2} className='policy-page-policy-number-wrapper'>
+            <Typography>
               Policy Number: {history.location.state.policyNumber}
             </Typography>
           </Grid>
