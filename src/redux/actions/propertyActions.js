@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import {addDays, differenceInDays, format} from 'date-fns'
+
 export const STORE_DATA = 'STORE_DATA';
 export const MAX_OF_ALL_CUM_RISK_SCORES = 'MAX_OF_ALL_CUM_RISK_SCORES';
 export const CALCULATE_CAT_CLAIMS_RISK_SCORE = 'CALCULATE_CAT_CLAIMS_RISK_SCORE';
@@ -145,6 +147,20 @@ export const loadExcelData = (data, policyId) => {
 
 export const loadReferralData = (data) => {
 
+  const daysPendingArr = [];
+
+  const effectiveDates = data.slice(0,10).map((datum, index) => {
+    return format(addDays(new Date(), Math.round(Math.random() * 10)), "M/d/yyyy");
+  });
+
+  const referredDates = data.slice(0,10).map((datum, index) => {
+    const randRefferredDate = addDays(new Date(), -(Math.round(Math.random() * 10)));
+    daysPendingArr.push(differenceInDays(new Date(), randRefferredDate));
+    return format(randRefferredDate, "M/d/yyyy");
+  }); 
+  
+  
+
   const payload = data.map((item, index) => {
 
 
@@ -152,9 +168,9 @@ export const loadReferralData = (data) => {
       id: index,
       submissionId: _.get(item, '[Submission ID]', '-'),
       policyId: _.get(item, '[Policy Number]', '-'),
-      effectiveDate: _.get(item, '[Policy Effective Date]', 'N/A'),
-      dateReferred: _.get(item, '[Date Referred]', 'N/A'),
-      daysPendingReview: _.get(item, '[Days Pending Review]', 'N/A'),
+      effectiveDate: effectiveDates[index],
+      dateReferred: referredDates[index],
+      daysPendingReview: daysPendingArr[index],
       status: _.get(item, '[Status]', 'N/A'),
 
 

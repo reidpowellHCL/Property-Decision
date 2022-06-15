@@ -1,18 +1,15 @@
-import React, { Component, useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import ClientInformation from '../ClientInfo/clientInformation';
 import * as XLSX from "xlsx";
 import PolicyRiskScore from '../RiskScore/riskScore';
 import OtherActivePolicies from '../OtherPolicies/otherPolicies.js';
 import PropertyCharacteristics from '../PropertyCharacteristics/propertyCharacteristics';
 import RiskFactors from '../RiskFactors/riskFactors';
-import RiskManagement from '../RiskManagement/riskManagement';
 import UnderwritingComments from '../UnderwritingComments/underwritingComments';
 import Footer from '../Footer/footer';
 import PolicyLimits from '../PolicyLimits/policyLimits';
 import policyData from '../../inputData/policyData.xlsx';
-import hclLogo from '../../inputData/HCL_Logo.svg';
 import './policyPage.css'
 
 // MUI Components
@@ -73,12 +70,13 @@ function PolicyPage(props) {
   // Calculate Risk Score upon cumulativeRisk change
   useEffect(() => {
 
-      calculateRiskScore(history.location.state.cumulativeRisk, property.maxOfAllCumRiskScores)
+      calculateRiskScore(history.location.state.cumulativeRisk ? history.location.state.cumulativeRisk : property.cumulativeRisk, property.maxOfAllCumRiskScores)
 
   }, [property.maxOfAllCumRiskScores])
 
   
-
+  // Use React Router useParams hook to capture policy ID
+  const { id } = useParams();
 
   const primary = props.theme.palette.primary.main;
 
@@ -92,7 +90,6 @@ function PolicyPage(props) {
     );
   }
 
-  console.log("Risk Score ====> " + property.riskScore);
 
   return (
     <Grid container xs={12} className="policy">
@@ -110,7 +107,7 @@ function PolicyPage(props) {
 
           <Grid item xs={2} className='policy-page-policy-number-wrapper'>
             <Typography>
-              Policy Number: {history.location.state.policyNumber}
+              Policy Number: {id}
             </Typography>
           </Grid>
 

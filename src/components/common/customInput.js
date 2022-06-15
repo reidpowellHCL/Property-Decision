@@ -28,18 +28,22 @@ class CustomInput extends Component {
     } = this.props;
 
     let updatedValue;
-    if (token === 'currency'){
+    if (token === 'currency' && !/^[0-9]+$/.test(value)) {
+      updatedValue = `$0`
+    } else if (token === 'currency' && /^[0-9]+$/.test(value)){
       updatedValue = `$${value}`
+    } else if (token === 'age' && !/^[0-9]+$/.test(value)) {
+      updatedValue = 0
+    } else if (token === 'age' && /^[0-9]+$/.test(value)) {
+      updatedValue = value
+    } else if (token === 'sqft' && !/^[0-9]+$/.test(value)) {
+      updatedValue = 0
     } else {
       updatedValue = value;
-    };
+    }
     return (
       <React.Fragment>
-        {/* {token === 'currency' && <i>$</i>} */}
         <input name={name} type={type} value={updatedValue} disabled={disabled} onChange={this.inputChange}/>
-        {/* {token === 'percent' && <i>%</i>}
-        {token === 'age' && <i>Years</i>}
-        {token === 'sqft' && <i>Sqft</i>} */}
       </React.Fragment>
     );
 
