@@ -14,6 +14,6 @@ app.get('*', (req, res) => {
 // const httpServer = http.createServer(app);
 const httpServer = http.createServer(app);
 // httpServer.listen(3001);
-httpServer.listen(3002);
+httpServer.listen(443);
 
 console.log("The server is running!");
