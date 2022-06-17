@@ -64,7 +64,6 @@ function MainPage(props) {
       headerAlign: "center",
       field: 'submissionId',
       headerName: 'Submission Number',
-      width: columnWidth,
       type: 'string'
     },
     {
@@ -72,7 +71,6 @@ function MainPage(props) {
       headerAlign: "center",
       field: 'policyId',
       headerName: 'Policy Number',
-      width: columnWidth,
       editable: false,
     },
     {
@@ -80,7 +78,6 @@ function MainPage(props) {
       headerAlign: "center",
       field: 'effectiveDate',
       headerName: 'Policy Effective Date',
-      width: columnWidth,
       editable: false,
       sortable: true,
     },
@@ -90,7 +87,6 @@ function MainPage(props) {
       field: 'dateReferred',
       headerName: 'Date Referred',
       type: 'number',
-      width: columnWidth,
       editable: true,
     },
     {
@@ -100,7 +96,6 @@ function MainPage(props) {
       headerName: 'Days Pending Review',
       description: 'This column has a value getter and is not sortable.',
       sortable: true,
-      width: columnWidth,
     },
     {
       align: "center",
@@ -109,7 +104,6 @@ function MainPage(props) {
       headerName: 'Status',
       description: 'This column has a value getter and is not sortable.',
       sortable: true,
-      width: columnWidth,
     },
   ];
 

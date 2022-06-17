@@ -36,14 +36,17 @@ function AppBar(props) {
       </Grid>
 
       <Grid item xs={3} className="profile">
-        <Grid className='profile-wrapper'>
-        <Typography className="appbar-name-and-title" variant="h3">
-          David Jefferson
-        </Typography>
-        <Typography className="appbar-name-and-title title" variant="subtitle1">
-          Practice Director
+        <Grid className="profile-wrapper">
+          <Typography className="appbar-name-and-title" variant="h3">
+            David Jefferson
           </Typography>
-          </Grid>
+          <Typography
+            className="appbar-name-and-title title"
+            variant="subtitle1"
+          >
+            Practice Director
+          </Typography>
+        </Grid>
         <Avatar alt="UU" src={profile_pic} />
       </Grid>
     </Grid>

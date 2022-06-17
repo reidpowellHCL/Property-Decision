@@ -2,12 +2,14 @@
   color: #fff;
   font-size: 17px !important;
   padding-right: 5%;
+  text-align: right;
 }
 
 .appbar-name-and-title.title{
   color: #fff;
   font-size: 13px !important;
   padding-right: 5%;
+  text-align: right;
 }
 
 .global-search {
@@ -50,7 +52,7 @@
 }
 
 .profile {
-  align-items: center;
+  align-items: baseline center;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -58,5 +60,6 @@
 }
 
 .profile-wrapper {
+  padding-right: 10px;
   width: 45%;
 }

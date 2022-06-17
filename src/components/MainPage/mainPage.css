@@ -6,7 +6,7 @@
 
 .home {
   align-content: flex-start;
-  width: 100vw;
+  width: 100vw !important;
   height: 100vh;
   background: #ffffff;
   display: flex;
