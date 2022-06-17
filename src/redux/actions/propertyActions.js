@@ -150,17 +150,18 @@ export const loadExcelData = (data, policyId) => {
 };
 
 
-export const loadReferralData = (data, prevReferralData) => {debugger
+export const loadReferralData = (data, prevReferralData) => {
 
   const daysPendingArr = [];
 
   const effectiveDates = data.slice(0, 10).map((datum, index) => {
-    return format(addDays(new Date(), Math.round(Math.random() * 10)), "M/d/yyyy");
+    const randEffectiveDate = addDays(new Date(), Math.round(Math.random() * 10));
+    daysPendingArr.push(differenceInDays(randEffectiveDate, new Date()));
+    return format(randEffectiveDate, "M/d/yyyy");
   });
 
   const referredDates = data.slice(0, 10).map((datum, index) => {
     const randRefferredDate = addDays(new Date(), -(Math.round(Math.random() * 10)));
-    daysPendingArr.push(differenceInDays(new Date(), randRefferredDate));
     return format(randRefferredDate, "M/d/yyyy");
   });
 
