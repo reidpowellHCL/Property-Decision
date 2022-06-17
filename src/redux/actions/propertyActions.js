@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import {addDays, differenceInDays, format} from 'date-fns'
+import { addDays, differenceInDays, format } from 'date-fns'
+import initialState from '../reducers/initialState'
 
 export const STORE_DATA = 'STORE_DATA';
 export const MAX_OF_ALL_CUM_RISK_SCORES = 'MAX_OF_ALL_CUM_RISK_SCORES';
@@ -25,7 +26,10 @@ export const CALCULATE_WATER_LOSS_RISK_SCORE = 'CALCULATE_WATER_LOSS_RISK_SCORE'
 export const LOADING = 'LOADING';
 export const REFERRAL_DATA = 'REFERRAL_DATA';
 export const REFERRAL_LOADING = 'REFERRAL_LOADING';
+export const RESET_BUTTON_STATE = 'RESET_BUTTON_STATE';
 export const UPDATE_UNDERWRITING_ACTIONS = 'UPDATE_UNDERWRITING_ACTIONS';
+
+
 
 
 export const calculateCumulativeRisk = (riskScoresObj) => {
@@ -145,21 +149,22 @@ export const loadExcelData = (data, policyId) => {
   }
 };
 
-export const loadReferralData = (data) => {
+
+export const loadReferralData = (data, prevReferralData) => {debugger
 
   const daysPendingArr = [];
 
-  const effectiveDates = data.slice(0,10).map((datum, index) => {
+  const effectiveDates = data.slice(0, 10).map((datum, index) => {
     return format(addDays(new Date(), Math.round(Math.random() * 10)), "M/d/yyyy");
   });
 
-  const referredDates = data.slice(0,10).map((datum, index) => {
+  const referredDates = data.slice(0, 10).map((datum, index) => {
     const randRefferredDate = addDays(new Date(), -(Math.round(Math.random() * 10)));
     daysPendingArr.push(differenceInDays(new Date(), randRefferredDate));
     return format(randRefferredDate, "M/d/yyyy");
-  }); 
-  
-  
+  });
+
+
 
   const payload = data.map((item, index) => {
 
@@ -168,9 +173,9 @@ export const loadReferralData = (data) => {
       id: index,
       submissionId: _.get(item, '[Submission ID]', '-'),
       policyId: _.get(item, '[Policy Number]', '-'),
-      effectiveDate: effectiveDates[index],
-      dateReferred: referredDates[index],
-      daysPendingReview: daysPendingArr[index],
+      effectiveDate: prevReferralData.length ? prevReferralData.effectiveDate[index] : effectiveDates[index],
+      dateReferred: prevReferralData.length ? prevReferralData.dateReferred[index] : referredDates[index],
+      daysPendingReview: prevReferralData.length ? prevReferralData.daysPendingReview[index] :  daysPendingArr[index],
       status: _.get(item, '[Status]', 'N/A'),
 
 
@@ -677,5 +682,12 @@ export const updatePolicy = (variable, value) => {
   }
   if (variable === 'underwritingActions') {
     return updateUnderwritingActions(variable, value);
+  }
+}
+
+export const resetButtonState = () => {
+  return {
+    type: RESET_BUTTON_STATE,
+    payload: 'inactive',
   }
 }

@@ -42,7 +42,16 @@
 
 .Submit-btn-active,
 .Save-btn-active,
-.Cancel-btn-active,
+.Cancel-btn-active {
+  border-radius: 4px;
+  background: rgb(0, 120, 215);
+  cursor: pointer;
+  color: #ffffff;
+  height: 25%;
+  margin-top: 20px;
+  width: 30%;
+}
+
 .Back-btn-active {
   border-radius: 4px;
   background: rgb(0, 120, 215);

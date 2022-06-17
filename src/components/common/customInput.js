@@ -38,6 +38,8 @@ class CustomInput extends Component {
       updatedValue = value
     } else if (token === 'sqft' && !/^[0-9]+$/.test(value)) {
       updatedValue = 0
+    } else if (token === 'sqft' && /^[0-9]+$/.test(value)) {
+      updatedValue = value
     } else {
       updatedValue = value;
     }

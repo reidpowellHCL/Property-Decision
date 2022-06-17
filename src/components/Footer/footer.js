@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import Proptypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './footer.css'
 
 function Footer (props) {
 
-   const { policyState, setPolicyState } = props;
+   const { policyState, property } = props;
 
     return (
       <div className="footer">
@@ -16,8 +15,8 @@ function Footer (props) {
           </Link>
         </div>
         <div className="footer-right">
-          <button className={`Submit-btn-${policyState.submitButtonClass}`}>Submit</button>
-          <button className={`Save-btn-${policyState.saveButtonClass}`}>Save</button>
+          <button className={`Submit-btn-${property.submitButtonClass}`}>Submit</button>
+          <button className={`Save-btn-${property.saveButtonClass}`}>Save</button>
           <Link to='/' className='footer-linked-button'>
           <button className={`Cancel-btn-${policyState.cancelButtonClass}`}>Cancel</button>
           </Link>

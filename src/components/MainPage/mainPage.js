@@ -42,7 +42,7 @@ function MainPage(props) {
       });
       wb.SheetNames.forEach(sheet => {
         let rawObj = XLSX.utils.sheet_to_row_object_array(wb.Sheets[sheet]);
-        loadReferralData(rawObj);
+        loadReferralData(rawObj, property.referralData);
       });
     });
   }, []);

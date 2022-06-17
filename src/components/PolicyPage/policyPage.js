@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import _ from 'lodash';
 import ClientInformation from '../ClientInfo/clientInformation';
 import * as XLSX from "xlsx";
 import PolicyRiskScore from '../RiskScore/riskScore';
@@ -27,7 +28,7 @@ import AppBar from '../AppBar/AppBar';
 function PolicyPage(props) {
 
 
-  const {calculateRiskScore, calculateCumulativeRisk, loadAllCumRiskScores, loadExcelData, loading, match, property, updatePolicy } = props;
+  const {calculateRiskScore, calculateCumulativeRisk, loadAllCumRiskScores, loadExcelData, loading, match, property, resetButtonState, updatePolicy } = props;
 
   const [state, setState] = useState({
     backButtonClass: 'active',
@@ -42,8 +43,7 @@ function PolicyPage(props) {
   const history = useHistory();
 
   useEffect(() => {
-    const policyId = match.params.id;
-    loading(true);
+      loading(true);
     fetch(policyData).then(res => {
       return res.arrayBuffer();
     }).then(res => {
@@ -53,11 +53,13 @@ function PolicyPage(props) {
       wb.SheetNames.forEach(sheet => {
         let rawObj = XLSX.utils.sheet_to_row_object_array(wb.Sheets[sheet]);
         loadAllCumRiskScores(rawObj);
-        loadExcelData(rawObj, history.location.state.policyNumber)
-      });
-    });
-    
-  }, [])
+        
+          loadExcelData(rawObj, history.location.state.policyNumber)
+      })
+    })
+
+    resetButtonState();
+  },[])
   
   // Calculate Cumulative Risk after initial data load
   useEffect(() => {
@@ -69,9 +71,7 @@ function PolicyPage(props) {
 
   // Calculate Risk Score upon cumulativeRisk change
   useEffect(() => {
-
       calculateRiskScore(history.location.state.cumulativeRisk ? history.location.state.cumulativeRisk : property.cumulativeRisk, property.maxOfAllCumRiskScores)
-
   }, [property.maxOfAllCumRiskScores])
 
   
@@ -142,7 +142,7 @@ function PolicyPage(props) {
       </Grid>
       <Grid item xs={12} className="footer-wrapper">
         <div className="property-characteristics-container footer-container">
-          <Footer policyState={state} primary={primary} setPolicyState={setState} />
+          <Footer policyState={state} primary={primary} setPolicyState={setState} property={property} />
         </div>
       </Grid>
     </Grid>

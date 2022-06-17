@@ -22,6 +22,7 @@ import {
   MAX_OF_ALL_CUM_RISK_SCORES,
   REFERRAL_DATA,
   REFERRAL_LOADING,
+  RESET_BUTTON_STATE,
   STORE_DATA,
   UPDATE_UNDERWRITING_ACTIONS
 } from '../actions/propertyActions';
@@ -38,7 +39,8 @@ export default (state = initialState.property, action) => {
             catClaimRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_COV_A_RISK_SCORE:
       return {
@@ -49,7 +51,8 @@ export default (state = initialState.property, action) => {
             covARisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active',
       }
     case CALCULATE_CUMULATIVE_RISK:
       return {
@@ -65,7 +68,8 @@ export default (state = initialState.property, action) => {
             deductibleRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active',
       }
     case CALCULATE_DWELLING_RISK_SCORE:
       return {
@@ -76,7 +80,8 @@ export default (state = initialState.property, action) => {
             dwellingRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_GARAGE_RISK_SCORE:
       return {
@@ -87,7 +92,8 @@ export default (state = initialState.property, action) => {
             garageRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_LIABILITY_CLAIMS_RISK_SCORE:
       return {
@@ -98,7 +104,8 @@ export default (state = initialState.property, action) => {
             liabilityClaimRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_LIABILITY_LIMIT_RISK_SCORE:
       return {
@@ -109,7 +116,8 @@ export default (state = initialState.property, action) => {
             liabilityLimitRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active',
       }
     case CALCULATE_NON_CAT_CLAIMS_RISK_SCORE:
       return {
@@ -120,7 +128,8 @@ export default (state = initialState.property, action) => {
             nonCatClaimRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_OCCUPATION_RISK_SCORE:
       return {
@@ -129,9 +138,10 @@ export default (state = initialState.property, action) => {
           {
             ...state.policies[0],
             occupationRisk: action.riskScore,
-            [action.variable]: action.payload
+            [action.variable]: action.payload,
           }
-        ]
+        ],
+        saveButtonClass: 'active',
       }
     case CALCULATE_PROTECTION_CLAIMS_RISK_SCORE:
       return {
@@ -142,7 +152,8 @@ export default (state = initialState.property, action) => {
             protectionRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_ROOF_RISK_SCORE:
       return {
@@ -153,7 +164,8 @@ export default (state = initialState.property, action) => {
             roofRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_ROOF_TYPE_RISK_SCORE:
       return {
@@ -164,7 +176,8 @@ export default (state = initialState.property, action) => {
             roofTypeRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_RISK_SCORE:
       return {
@@ -180,7 +193,8 @@ export default (state = initialState.property, action) => {
             sidingRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_SMART_DWELLING_RISK_SCORE:
       return {
@@ -191,7 +205,8 @@ export default (state = initialState.property, action) => {
             smartHomeRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_SQFT_RISK_SCORE:
       return {
@@ -202,7 +217,8 @@ export default (state = initialState.property, action) => {
             squareFootRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_VIDEO_AND_SMART_DWELLING_RISK_SCORE:
       return {
@@ -213,7 +229,8 @@ export default (state = initialState.property, action) => {
             videoHomeRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case CALCULATE_WATER_LOSS_RISK_SCORE:
       return {
@@ -224,7 +241,8 @@ export default (state = initialState.property, action) => {
             waterLossPrevRisk: action.riskScore,
             [action.variable]: action.payload
           }
-        ]
+        ],
+        saveButtonClass: 'active'
       }
     case LOADING:
       return {
@@ -249,6 +267,12 @@ export default (state = initialState.property, action) => {
         ...state,
         referralDataIsLoading: action.payload
       }
+    case RESET_BUTTON_STATE:
+      return {
+        ...state,
+        saveButtonClass: action.payload,
+        submitButtonClass: action.payload
+      }
     case STORE_DATA:
       return {
         ...state,
@@ -264,7 +288,8 @@ export default (state = initialState.property, action) => {
             ...state.policies[0],
             [action.variable]: action.payload
           }
-        ]
+        ],
+        submitButtonClass: action.payload ? 'active' : 'inactive'
       }
     default:
       return state;
