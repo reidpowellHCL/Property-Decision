@@ -176,7 +176,7 @@ export const loadReferralData = (data, prevReferralData) => {
       policyId: _.get(item, '[Policy Number]', '-'),
       effectiveDate: prevReferralData.length ? prevReferralData.effectiveDate[index] : effectiveDates[index],
       dateReferred: prevReferralData.length ? prevReferralData.dateReferred[index] : referredDates[index],
-      daysPendingReview: prevReferralData.length ? prevReferralData.daysPendingReview[index] :  daysPendingArr[index],
+      daysToReview: prevReferralData.length ? prevReferralData.daysToReview[index] :  daysPendingArr[index],
       status: _.get(item, '[Status]', 'N/A'),
 
 

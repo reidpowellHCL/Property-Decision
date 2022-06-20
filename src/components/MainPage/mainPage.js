@@ -92,9 +92,9 @@ function MainPage(props) {
     {
       align: "center",
       headerAlign: "center",
-      field: 'daysPendingReview',
-      headerName: 'Days Pending Review',
-      description: 'This column has a value getter and is not sortable.',
+      field: 'daysToReview',
+      headerName: 'Days To Review',
+      description: "Difference between the policy effective date and today's date",
       sortable: true,
     },
     {
@@ -160,9 +160,6 @@ function MainPage(props) {
                       })
                     }
                   })
-                  
-                  
-                  
                 }
               })
             }
