@@ -517,13 +517,13 @@ export const calculateCatClaimsRisk = (variable, catClaimsNumber) => {
   let catClaimsRisk;
 
   if (catClaimsNumber === '0') {
-    catClaimsRisk = .027;
+    catClaimsRisk = .0272;
   } else if (catClaimsNumber === '1') {
-    catClaimsRisk = .093;
+    catClaimsRisk = .0328;
   } else if (catClaimsNumber === '2') {
-    catClaimsRisk = .093;
+    catClaimsRisk = .0928;
   } else if (catClaimsNumber === '3+') {
-    catClaimsRisk = .093;
+    catClaimsRisk = .1363;
   }
 
 
@@ -541,13 +541,13 @@ export const calculateNonCatClaimsRisk = (variable, nonCatClaimsNumber) => {
   let nonCatClaimsRisk;
 
   if (nonCatClaimsNumber === '0') {
-    nonCatClaimsRisk = .027;
+    nonCatClaimsRisk = .0272;
   } else if (nonCatClaimsNumber === '1') {
-    nonCatClaimsRisk = .09;
+    nonCatClaimsRisk = .0329;
   } else if (nonCatClaimsNumber === '2') {
-    nonCatClaimsRisk = .09;
+    nonCatClaimsRisk = .0928;
   } else if (nonCatClaimsNumber === '3+') {
-    nonCatClaimsRisk = .09;
+    nonCatClaimsRisk = .1363;
   }
 
 
@@ -565,13 +565,13 @@ export const calculateLiabilityClaimsRisk = (variable, liabilityClaimsNumber) =>
   let liabilityClaimsRisk;
 
   if (liabilityClaimsNumber === '0') {
-    liabilityClaimsRisk = .027;
+    liabilityClaimsRisk = .0272;
   } else if (liabilityClaimsNumber === '1') {
-    liabilityClaimsRisk = .09;
+    liabilityClaimsRisk = .0329;
   } else if (liabilityClaimsNumber === '2') {
-    liabilityClaimsRisk = .09;
+    liabilityClaimsRisk = .0928;
   } else if (liabilityClaimsNumber === '3+') {
-    liabilityClaimsRisk = .09;
+    liabilityClaimsRisk = .1363;
   }
 
 

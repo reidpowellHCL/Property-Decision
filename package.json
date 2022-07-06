@@ -52,10 +52,10 @@
     "postcss-preset-env": "^7.0.1",
     "prompts": "^2.4.2",
     "prop-types": "^15.8.1",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-app-polyfill": "^3.0.0",
     "react-dev-utils": "^12.0.0",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-hot-loader": "^4.0.0",
     "react-redux": "^7.2.6",
     "react-refresh": "^0.11.0",
@@ -158,5 +158,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "react-test-renderer": "^18.2.0"
   }
 }
