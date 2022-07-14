@@ -232,7 +232,7 @@ export const calculateOccupationRisk = (variable, occupation) => {
 
 export const calculateCovARisk = (variable, coverageALimit) => {
 
-  const covALimit = parseInt(coverageALimit.slice(1));
+  const covALimit = coverageALimit.slice(0,1) === '$' ? parseInt(coverageALimit.slice(1)) : parseInt(coverageALimit);
   let covARisk;
 
   if (covALimit <= 500000) {
