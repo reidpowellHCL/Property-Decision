@@ -99,19 +99,21 @@ class PropertyCharacteristics extends Component {
         name: 'Water Loss Prevention Device',
         component: 'select',
         htmlFor:"Water Loss Prevention Device",
-        label:"Water Loss Prevention Device",
+        label:"Gold",
         id: 'Water Loss Prevention Device',
         className: 'waterLossPreventionDevice',
         list: ['Yes', 'No'],
         value: (_.get(property, 'policies[0].waterLossPrevention', '')),
         stateVariable: 'waterLossPrevention',
         action: updatePolicy,
+        disabled: _.get(property, 'policies[0].smartDwelling', '') === 'Yes' ||
+        _.get(property, 'policies[0].videoAndSmartDwelling', '') === 'Yes' ? true : false
       },
       {
         name: 'Smart Dwelling',
         component: 'select',
         htmlFor:"Smart Dwelling",
-        label:"Smart Dwelling",
+        label:"Silver",
         id: 'Smart Dwelling',
         className: 'smartDwelling',
         list: ['Yes', 'No'],
@@ -119,21 +121,22 @@ class PropertyCharacteristics extends Component {
         // value: (_.get(property, 'policies[0].videoAndSmartDwelling', '') === 'Yes' ? 'No' : _.get(property, 'policies[0].smartDwelling', '')),
         stateVariable: 'smartDwelling',
         action: updatePolicy,
-        disabled: _.get(property, 'policies[0].videoAndSmartDwelling', '') === 'Yes' ? true : false
+        disabled: _.get(property, 'policies[0].waterLossPrevention', '') === 'Yes' ||
+        _.get(property, 'policies[0].videoAndSmartDwelling', '') === 'Yes' ? true : false
       },
       {
         name: 'Video & Smart Dwelling',
         component: 'select',
         htmlFor:"Video & Smart Dwelling",
-        label:"Video & Smart Dwelling",
+        label:"Bronze",
         id: 'Video & Smart Dwelling',
         className: 'videoSmartDwelling',
         list: ['Yes', 'No'],
         value: (_.get(property, 'policies[0].videoAndSmartDwelling', '')),
         stateVariable: 'videoAndSmartDwelling',
         action: updatePolicy,
-        disabled: _.get(property, 'policies[0].smartDwelling', '') === 'Yes' &&
-        _.get(property, 'policies[0].videoAndSmartDwelling', '') === 'No' ? true : false
+        disabled: _.get(property, 'policies[0].waterLossPrevention', '') === 'Yes' ||
+        _.get(property, 'policies[0].smartDwelling', '') === 'Yes' ? true : false
       }
     ];
     return (
