@@ -235,15 +235,15 @@ export const calculateCovARisk = (variable, coverageALimit) => {
   const covALimit = coverageALimit.slice(0,1) === '$' ? parseInt(coverageALimit.slice(1)) : parseInt(coverageALimit);
   let covARisk;
 
-  if (covALimit <= 500000) {
+  if (covALimit <= 300000) {
     covARisk = .0033;
-  } else if (covALimit > 500000 && covALimit <= 600000) {
+  } else if (covALimit > 300000 && covALimit <= 500000) {
     covARisk = .0087;
-  } else if (covALimit > 600000 && covALimit <= 700000) {
+  } else if (covALimit > 500000 && covALimit <= 700000) {
     covARisk = .0116;
-  } else if (covALimit > 700000 && covALimit <= 800000) {
+  } else if (covALimit > 700000 && covALimit <= 900000) {
     covARisk = .0066;
-  } else if (covALimit > 800000) {
+  } else if (covALimit > 900000) {
     covARisk = .0258;
   }
 
